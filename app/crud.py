@@ -30,7 +30,7 @@ def get_events_by_event_date(db: Session, from_date: date, to_date: date, order_
                      (cast(func.sum(md.Event.cost), Numeric(12, 2))).label('cost'),
                      (cast(func.sum(md.Event.cost) / func.sum(md.Event.clicks), Numeric(12, 3))).label('cpc'),
                      (cast((func.sum(md.Event.cost) / func.sum(md.Event.views))*SHOW_COUNT, Numeric(12, 3))).label('cpm'))\
-        .filter(and_(md.Event.clicks > 0, md.Event.views > 0), md.Event.cost.is_not(None)) \
+        .filter(and_(md.Event.clicks > 0, md.Event.views > 0, md.Event.cost.is_not(None))) \
         .join(md.EventDate).filter(md.EventDate.event_date.between(from_date, to_date)) \
         .group_by(md.EventDate.event_date)
     query = query.order_by(order_column)

@@ -3,4 +3,4 @@ services:
   tm_api:
     build: .
     ports:
-      - "80:80"
+      - "8000:8000"

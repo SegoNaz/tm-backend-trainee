@@ -55,8 +55,8 @@
 - git pull https://github.com/SegoNaz/tm-backend-trainee
 - docker-compose up
 
-После запуска сервера, интерактивная документация будет доступна по адресу: http://your_ip_address/docs, или http://localhost/docs  
-Альтернативная документация: http://your_ip_address/redoc, или http://localhost/redoc
+После запуска сервера, интерактивная документация будет доступна по адресу: http://your_ip_address:8000/docs, или http://127.0.0.1:8000/docs  
+Альтернативная документация: http://your_ip_address:8000/redoc, или http://localhost:8000/redoc
 
 - **Python, uvicorn + venv (Ubuntu 20.04)**
 - cd where-you-keep-your-projects
@@ -67,10 +67,31 @@
 - python3 -m venv tm-venv
 - source tm-venv/bin/activate
 - pip install -r requirements.txt
-- uvicorn app.main:app --host 0.0.0.0 --port 8000
+- uvicorn app.main:app --host 127.0.0.1 --port 8000
 
-После запуска сервера, интерактивная документация будет доступна по адресу: http://localhost:8000/docs  
-Альтернативная документация: http://localhost:8000/redoc
+После запуска сервера, интерактивная документация будет доступна по адресу: http://127.0.0.1:8000/docs  
+Альтернативная документация: http://127.0.0.1:8000/redoc
+
+### Примеры запросов:
+curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/stat?from=2022-01-01&to=2022-01-04&order_column=date' \
+  -H 'accept: application/json'
+  
+  
+ curl -X 'POST' \
+  'http://127.0.0.1:8000/api/v1/stat' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "views": 10,
+  "clicks": 10,
+  "cost": 1.99,
+  "date": "2022-01-02"
+}'
+  
+curl -X 'DELETE' \
+  'http://127.0.0.1:8000/api/v1/stat' \
+  -H 'accept: application/json'
 
 ## Основные функции:
 + **get_events_by_event_date(db: Session, from_date: date, to_date: date, order_column)**  

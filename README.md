@@ -73,15 +73,15 @@
 Альтернативная документация: http://127.0.0.1:8000/redoc
 
 ### Примеры запросов:
-curl -X 'GET' \
-  'http://127.0.0.1:8000/api/v1/stat?from=2022-01-01&to=2022-01-04&order_column=date' \
+curl -X 'GET' \\  
+  'http://127.0.0.1:8000/api/v1/stat?from=2022-01-01&to=2022-01-04&order_column=date' \\  
   -H 'accept: application/json'
   
   
- curl -X 'POST' \
-  'http://127.0.0.1:8000/api/v1/stat' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
+ curl -X 'POST' \\  
+  'http://127.0.0.1:8000/api/v1/stat' \\  
+  -H 'accept: application/json' \\  
+  -H 'Content-Type: application/json' \\  
   -d '{
   "views": 10,
   "clicks": 10,
@@ -89,8 +89,8 @@ curl -X 'GET' \
   "date": "2022-01-02"
 }'
   
-curl -X 'DELETE' \
-  'http://127.0.0.1:8000/api/v1/stat' \
+curl -X 'DELETE' \\  
+  'http://127.0.0.1:8000/api/v1/stat' \\  
   -H 'accept: application/json'
 
 ## Основные функции:

@@ -49,8 +49,8 @@
 - Релизованно: документация, валидация, тестирование, сортировка по любому полю.
 ### Установка и запуск (**Linux, docker-compose**):
 - cd where-you-keep-your-projects
-- mkdir tm-project
-- cd tm-project
+- mkdir tm_project
+- cd tm_project
 - git init
 - git pull https://github.com/SegoNaz/tm-backend-trainee
 - docker-compose up
@@ -65,12 +65,12 @@
 ### Установка и запуск(**Python, venv**):
 
 - cd where-you-keep-your-projects
-- mkdir tm-project
-- cd tm-project
+- mkdir tm_project
+- cd tm_project
 - git init
 - git pull https://github.com/SegoNaz/tm-backend-trainee
-- python3 -m venv tm-venv
-- source tm-venv/bin/activate
+- python3 -m venv tm_venv
+- source tm_venv/bin/activate
 - pip install -r requirements.txt
 - uvicorn app.main:app --host 127.0.0.1 --port 8000
 - запустить тест: pytest test

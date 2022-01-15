@@ -9,4 +9,4 @@ services:
     env_file:
       - .env.example
     volumes:
-      - ./database.sqlite3:/code/database.sqlite3
+      - ./db:/code/db

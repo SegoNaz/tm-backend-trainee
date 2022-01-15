@@ -19,14 +19,11 @@ def test_get_stat_data_exist(test_app):
     assert response.status_code == 201
     body = response.json()
     assert body == event_data
-    print(body)
 
     request_data = {'from': '2022-01-12', 'to': '2022-01-12', 'order_column': 'date'}
     response = test_app.get('api/v1/stat/', params=request_data)
-    print(response)
     assert response.status_code == 200
     body = response.json()
-    print(body)
     assert body == [
         {
             "views": 100,

@@ -46,8 +46,8 @@
 - документация (достаточно структурированного описания методов, примеров их вызова в README.md).
 
 # Решение с помощью Python, FastAPI.
-## Установка и запуск:
-- **Linux + docker-compose:**
+- Релизованно: документация, валидация, тестирование, сортировка по любому полю.
+### Установка и запуск (**Linux, docker-compose**):
 - cd where-you-keep-your-projects
 - mkdir tm-project
 - cd tm-project
@@ -56,9 +56,14 @@
 - docker-compose up
 
 После запуска сервера, интерактивная документация будет доступна по адресу: http://your_ip_address:8000/docs, или http://127.0.0.1:8000/docs  
-Альтернативная документация: http://your_ip_address:8000/redoc, или http://localhost:8000/redoc
+Альтернативная документация: http://your_ip_address:8000/redoc, или http://localhost:8000/redoc  
+Запуск тестов с помощью docker:
+- подключиться к запущенному контейнеру с помощью команды:
+***docker exec -it tm_api bash***
+- Запустить тест: ***pytest test***     
 
-- **Python, uvicorn + venv (Ubuntu 20.04)**
+### Установка и запуск(**Python, venv**):
+
 - cd where-you-keep-your-projects
 - mkdir tm-project
 - cd tm-project
@@ -68,6 +73,7 @@
 - source tm-venv/bin/activate
 - pip install -r requirements.txt
 - uvicorn app.main:app --host 127.0.0.1 --port 8000
+- запустить тест: pytest test
 
 После запуска сервера, интерактивная документация будет доступна по адресу: http://127.0.0.1:8000/docs  
 Альтернативная документация: http://127.0.0.1:8000/redoc
@@ -93,29 +99,7 @@ curl -X 'DELETE' \\
   'http://127.0.0.1:8000/api/v1/stat' \\  
   -H 'accept: application/json'
 
-## Основные функции:
-+ **get_events_by_event_date(db: Session, from_date: date, to_date: date, order_column)**  
-Функция формирует данные:
-+ date - дата события
-+ views - количество показов
-+ clicks - количество кликов
-+ cost - стоимость кликов
-+ cpc = cost/clicks (средняя стоимость клика). 3 знака после запятой.
-+ cpm = cost/views * 1000 (средняя стоимость 1000 показов). 3 знака после запятой.
-+ Агрегация по дате.
-+ Фильтр по дате (from, to), включительно.
-+ Сортировка по любому полю.  
-- **create_event(db: Session, event: sc.EventCreate)**   
-Функция сохранения статистики. EventCreate - pydantic схема для сохранения и валидации данных:  
-- date - дата события.
-- views - количество показов.
-- clicks - количество кликов.
-- cost - стоимость кликов (в рублях с точностью до копеек).
-- Поля views, clicks и cost - опциональные.  
 
-+ **delete_statistics(db: Session, tables: tuple)**  
-Функция очищает таблицы от данных:
-+ Принимает на вход необходимые таблицы
 
 
 

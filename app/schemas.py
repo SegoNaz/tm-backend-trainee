@@ -1,6 +1,7 @@
 from datetime import date
 from typing import Optional, List
 
+from enum import Enum
 from pydantic import BaseModel, Field, validator
 
 
@@ -72,5 +73,10 @@ class ShowStatistics(EventBase):
         orm_mode = True
 
 
-class ResultDelete(BaseModel):
-    msg: str = Field(..., example='Statistics deleted successfully')
+class OrderColumn(str, Enum):
+    date = 'date'
+    views = 'views'
+    clicks = 'clicks'
+    cost = 'cost'
+    cpc = 'cpc'
+    cpm = 'cpm'

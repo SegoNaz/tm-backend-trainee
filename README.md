@@ -66,7 +66,7 @@ docker-compose up
 ```
 После запуска сервера, интерактивная документация будет доступна по адресу: http://your_ip_address:8000/docs, или http://127.0.0.1:8000/docs  
 Альтернативная документация: http://your_ip_address:8000/redoc, или http://localhost:8000/redoc  
-Запуск тестов с помощью docker:
+- Запуск тестов с помощью docker:
 1. Подключиться к запущенному контейнеру с помощью команды:
 ```shell
 docker exec -it tm_api bash
@@ -75,7 +75,7 @@ docker exec -it tm_api bash
 ```shell
 pytest test     
 ```
-### Установка и запуск(**Python, venv**):
+### Установка и запуск (**Python, venv**):
 
 - cd where-you-keep-your-projects
 ```shell
@@ -93,6 +93,7 @@ git pull https://github.com/SegoNaz/tm-backend-trainee
 ```shell
 python3 -m venv tm_venv
 ```
+> i Для некоторых систем вместо python3 используется python.
 ```shell
 source tm_venv/bin/activate
 ```

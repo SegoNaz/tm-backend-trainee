@@ -49,56 +49,90 @@
 - Релизованно: документация, валидация, тестирование, сортировка по любому полю.
 ### Установка и запуск (**Linux, docker-compose**):
 - cd where-you-keep-your-projects
-- mkdir tm_project
-- cd tm_project
-- git init
-- git pull https://github.com/SegoNaz/tm-backend-trainee
-- docker-compose up
-
+```shell 
+mkdir tm_project
+```
+```shell
+cd tm_project
+```
+```shell
+git init
+```
+```shell
+git pull https://github.com/SegoNaz/tm-backend-trainee
+```
+```shell
+docker-compose up
+```
 После запуска сервера, интерактивная документация будет доступна по адресу: http://your_ip_address:8000/docs, или http://127.0.0.1:8000/docs  
 Альтернативная документация: http://your_ip_address:8000/redoc, или http://localhost:8000/redoc  
 Запуск тестов с помощью docker:
-- подключиться к запущенному контейнеру с помощью команды:
-***docker exec -it tm_api bash***
-- Запустить тест: ***pytest test***     
-
+1. Подключиться к запущенному контейнеру с помощью команды:
+```shell
+docker exec -it tm_api bash
+```
+2. Запустить тест:
+```shell
+pytest test     
+```
 ### Установка и запуск(**Python, venv**):
 
 - cd where-you-keep-your-projects
-- mkdir tm_project
-- cd tm_project
-- git init
-- git pull https://github.com/SegoNaz/tm-backend-trainee
-- python3 -m venv tm_venv
-- source tm_venv/bin/activate
-- pip install -r requirements.txt
-- uvicorn app.main:app --host 127.0.0.1 --port 8000
-- запустить тест: pytest test
+```shell
+mkdir tm_project
+```
+```shell
+cd tm_project
+```
+```shell
+git init
+```
+```shell
+git pull https://github.com/SegoNaz/tm-backend-trainee
+```
+```shell
+python3 -m venv tm_venv
+```
+```shell
+source tm_venv/bin/activate
+```
+```shell
+pip install -r requirements.txt
+```
+```shell
+uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+- запустить тест:
+```shell
+pytest test
+```
 
 После запуска сервера, интерактивная документация будет доступна по адресу: http://127.0.0.1:8000/docs  
 Альтернативная документация: http://127.0.0.1:8000/redoc
 
 ### Примеры запросов:
-curl -X 'GET' \\  
-  'http://127.0.0.1:8000/api/v1/stat?from=2022-01-01&to=2022-01-04&order_column=date' \\  
+```shell
+curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/stat?from=2022-01-01&to=2022-01-04&order_column=date' \
   -H 'accept: application/json'
-  
-  
- curl -X 'POST' \\  
-  'http://127.0.0.1:8000/api/v1/stat' \\  
-  -H 'accept: application/json' \\  
-  -H 'Content-Type: application/json' \\  
+```
+```shell
+ curl -X 'POST' \
+  'http://127.0.0.1:8000/api/v1/stat' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
   -d '{
   "views": 10,
   "clicks": 10,
   "cost": 1.99,
   "date": "2022-01-02"
 }'
-  
-curl -X 'DELETE' \\  
-  'http://127.0.0.1:8000/api/v1/stat' \\  
+```
+```shell
+curl -X 'DELETE' \
+  'http://127.0.0.1:8000/api/v1/stat' \
   -H 'accept: application/json'
-
+```
 
 
 

@@ -50,16 +50,13 @@
 ### Установка и запуск (**Linux, docker-compose**):
 - cd where-you-keep-your-projects
 ```shell 
-mkdir tm_project
-```
-```shell
-cd tm_project
+mkdir tm_project && cd tm_project
 ```
 ```shell
 git init
 ```
 ```shell
-git pull https://github.com/SegoNaz/tm-backend-trainee
+git pull https://github.com/segonaz/tm-backend-trainee
 ```
 ```shell
 docker-compose up
@@ -79,21 +76,18 @@ pytest test
 
 - cd where-you-keep-your-projects
 ```shell
-mkdir tm_project
-```
-```shell
-cd tm_project
+mkdir tm_project && cd tm_project
 ```
 ```shell
 git init
 ```
 ```shell
-git pull https://github.com/SegoNaz/tm-backend-trainee
+git pull https://github.com/segonaz/tm-backend-trainee
 ```
-```shell
-python3 -m venv tm_venv
-```
-> i Для некоторых систем вместо python3 используется python.
+> Для некоторых систем вместо ***python3*** используется ***python***
+> ```shell
+> python3 -m venv tm_venv
+>```
 ```shell
 source tm_venv/bin/activate
 ```
